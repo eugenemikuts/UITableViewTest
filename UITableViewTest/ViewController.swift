@@ -7,31 +7,32 @@
 
 import UIKit
 
+//Изначально у нас есть некий массив данных (массив строк)
 var data: [String] = ["убрать квартиру", "пофоткать квартиру", "составить список", "завести блокнот"]
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    
+    //Добавляем аутлет
     @IBOutlet weak var tableView: UITableView!
     
-    
+    //Метод numberOfRowsInSection возвращщает нам количество строк в секции. По умолчанию секция в таблице у нас одна. return data.count означает я верну столько строк, сколько элементов у нас в массиве
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
     
     
-    
+    //Второй метод cellForRowAt indexPath должен вернуть нам элемент UITableViewCell. Он вызовется столько раз, сколько у нас ячеек в секции, каждый раз при вызове он будет брать UITableViewCell для IndexPath
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellIndetifier", for: indexPath)
         
-        cell.textLabel?.text = data[indexPath.row]
+        cell.textLabel?.text = data[indexPath.row] //Забираем элементы из массива
         
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true) //Убираем залипание на ячейке, animated: true - это плавный уход выделения
         
         print(data[indexPath.row])
     }
@@ -40,7 +41,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
 
