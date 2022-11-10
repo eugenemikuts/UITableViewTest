@@ -8,11 +8,11 @@
 import UIKit
 
 //Изначально у нас есть некий массив данных (массив строк)
-var data: [String] = ["убрать квартиру", "пофоткать квартиру", "составить список", "завести блокнот"]
+var data: [String] = ["убрать квартиру", "составить список", "завести блокнот"]
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    //Добавляем аутлет
+    //Добавляем аутлет UITableView
     @IBOutlet weak var tableView: UITableView!
     
     //Метод numberOfRowsInSection возвращщает нам количество строк в секции. По умолчанию секция в таблице у нас одна. return data.count означает я верну столько строк, сколько элементов у нас в массиве
@@ -37,13 +37,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print(data[indexPath.row])
     }
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-
-
 }
+
+
+
 
